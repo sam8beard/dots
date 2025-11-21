@@ -105,7 +105,7 @@ alias docker_clean_volumes="docker_swarm_clean && docker_clean && docker network
 
 export OSH=$HOME/.oh-my-bash   # points to your symlink in ~/oh-my-bash
 export OSH_THEME="bobby"
-OSH_PLUGINS=(history web-search)
+OSH_PLUGINS=(git history web-search)
 [ -f "$OSH/oh-my-bash.sh" ] && source "$OSH/oh-my-bash.sh"
 # Display welcome banner 
 echo -e "\e[1m"
