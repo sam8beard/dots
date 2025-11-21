@@ -7,7 +7,7 @@
 >
 >"...and ***this*** part?" he asks, pointing to the code for the Giant Omelette.
 >
->"that part? it only caches tweets in the ***mainframe cyberhex***", i say.
+>"that part? pfft, childsplay. caches tweets in the ***mainframe cyberhex***", i say.
 >
 >
 >
