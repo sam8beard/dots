@@ -86,6 +86,9 @@ function gp {
 	git push "$@"
 }
 
+function tga {
+	tree "$@" --gitignore -a 
+} 
 function tg { 
 	tree "$@" --gitignore
 } 
