@@ -41,7 +41,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -96,13 +96,31 @@ fi
 # - $ZSH_CUSTOM/aliases.zsh
 # - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
-#
-#
+
+
 # Custom aliases 
 alias szrc="source ~/.zshrc"
 alias nvl="nvim -c':e#<1'"
 alias grn="go run ."
+alias gah="git add ."
+alias gs="git status"
 
+# Custom functions
+function ga {
+	git add "$@"
+}
+
+function gcm {
+	git commit -m "$@"
+}
+
+function gp {
+	git push "$@"
+}
+
+function tg { 
+	tree "$@" --gitignore
+} 
 # Initialize prompt (pure)
 autoload -U promptinit; promptinit
 # Configure pure prompt
@@ -113,15 +131,14 @@ zstyle ':prompt:pure:prompt:*' color cyan
 PURE_PROMPT_SYMBOL=">>"
 prompt pure
 
+# Configure autosuggest
+bindkey '^ ' autosuggest-accept
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4eabb5,bold"
+
 # Display welcome banner 
 echo "\e[1m"
 ~/.welcome.sh | lolcat -p 2 -S 43 -t -F .05
 echo "\e[1m"
-echo "--------------------------------------------------------------------------------------"
 echo "\e[1m"
-date | lolcat -p 2 -S 600 -t -F .05
+date | lolcat -p 2 -S 20 -t -F .05
 echo "\e[1m"
-echo "--------------------------------------------------------------------------------------"
-echo "\e[1m"
-df -H ~ | lolcat -p 2 -S 600 -t -F .05
-echo "\e[0m"
