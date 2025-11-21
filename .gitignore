@@ -4,8 +4,8 @@
 **/.gitattributes
 **/.github/
 
-iterm2/AppSupport/
-iterm2/sockets/
+iterm2/AppSupport
+iterm2/sockets
 
 nvim/.cache/
 nvim/lazy-lock.json
