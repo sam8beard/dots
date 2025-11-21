@@ -13,4 +13,4 @@
 >
 >he nods in approval.
 >
->"\****heh***\*  .....as i suspected. good work **kid**."
+>"\****heh***\*  .....as i suspected."
