@@ -45,7 +45,7 @@ alias l='ls -CF'
 
 alias sbrc='source ~/.bashrc'
 alias 1='cd ..'
-alias 2='cd ../..'
+alias 2='cd ../../'
 alias gah='git add .'
 alias gs='git status'
 alias grl='git reflog'
@@ -104,7 +104,7 @@ function docker_volume_clean() {
 alias docker_clean_volumes="docker_swarm_clean && docker_clean && docker network prune -f && docker volume prune -f && docker_volume_clean"
 
 export OSH=$HOME/.oh-my-bash   # points to your symlink in ~/oh-my-bash
-export OSH_THEME="bobby"
+export OSH_THEME="agnoster"
 OSH_PLUGINS=(git history web-search)
 [ -f "$OSH/oh-my-bash.sh" ] && source "$OSH/oh-my-bash.sh"
 # Display welcome banner 
