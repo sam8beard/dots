@@ -83,9 +83,11 @@ function gcb {
 	git checkout -b "$@"
 } 
 function gp {
-	git push "$@"
+	git push -u origin "$@"
 }
-
+function gpur {
+	git pull --rebase
+} 
 function tga {
 	tree "$@" --gitignore -a 
 } 

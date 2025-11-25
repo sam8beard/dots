@@ -618,31 +618,32 @@ require('lazy').setup({
     'neoclide/coc.nvim',
     branch = 'release',
   },
-  {
-    'nvim-tree/nvim-tree.lua',
-    version = '*',
-    lazy = false,
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-    },
-    config = function()
-      require('nvim-tree').setup {
 
-        sort = {
-          sorter = 'case_sensitive',
-        },
-        view = {
-          width = 30,
-        },
-        renderer = {
-          group_empty = true,
-        },
-        filters = {
-          dotfiles = true,
-        },
-      }
-    end,
-  },
+  --{
+  --  'nvim-tree/nvim-tree.lua',
+  --  version = '*',
+  --  lazy = false,
+  --  dependencies = {
+  --    'nvim-tree/nvim-web-devicons',
+  --  },
+  --  config = function()
+  --    require('nvim-tree').setup {
+
+  --      sort = {
+  --        sorter = 'case_sensitive',
+  --      },
+  --      view = {
+  --        width = 30,
+  --      },
+  --      renderer = {
+  --        group_empty = true,
+  --      },
+  --      filters = {
+  --        dotfiles = true,
+  --      },
+  --    }
+  --  end,
+  --},
   -- Highlight todo, notes, etc in comments
   -- { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
