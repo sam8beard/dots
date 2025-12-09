@@ -92,6 +92,22 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
+-- [[Custom commands]]
+
+-- Copy all open windows to clipboard - :Cpa
+vim.api.nvim_create_user_command('Cpa', function()
+  local all_contents = {}
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_is_loaded(buf) then
+      local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+      vim.list_extend(all_contents, lines)
+      table.insert(all_contents, '')
+    end
+  end
+  vim.fn.setreg('+', table.concat(all_contents, '\n'))
+  vim.notify 'All window contents copied to clipboard'
+end, {})
+
 -- [[ Basic Autocommands ]]
 
 -- Highlight when yanking
@@ -135,6 +151,14 @@ require('lazy').setup({
         changedelete = { text = '~' },
       },
     },
+  },
+
+  -- emmet for HTML and other webdev autocompletion
+  {
+    'mattn/emmet-vim',
+
+    event = 'BufReadPre *.html',
+    lazy = false,
   },
 
   {
@@ -443,7 +467,10 @@ require('lazy').setup({
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
-
+        eslint = {
+          filetypes = { 'javascript' },
+          settings = { format = { enable = true } },
+        },
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },

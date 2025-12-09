@@ -1,18 +1,20 @@
+# Custom bins (non-brew)
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+# Homebrew
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 
-# Path to your Oh My Zsh installation.
+# Path to Oh My Zsh 
 export ZSH="$HOME/.oh-my-zsh"
 
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
 
 ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
+DISABLE_AUTO_UPDATE=true 
+DISABLE_UPDATE_PROMPT=true
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
@@ -70,7 +72,13 @@ alias gaa="git add --all"
 alias gs="git status"
 alias ..="cd .."
 alias 2="cd ../../"
+
 # Custom functions
+
+# change to top level directory after home (for *some* project root directories)
+function proot { 
+	cd ${HOME}/${${PWD#$HOME/}%%/*}
+} 
 function ga {
 	git add "$@"
 }
@@ -109,14 +117,10 @@ bindkey '^ ' autosuggest-accept
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4eabb5,bold"
 
 echo "\n         Welcome back,"
+# Display welcome banner 
 ~/.welcome.sh
 fastfetch --config ~/dots/.config/fastfetch/config-2.jsonc
-# Display welcome banner 
-echo "\e[1m"
-# ~/.welcome.sh | lolcat -p 2 -S 43 -t -F .05
-#
-# ~/.welcome.sh
-echo "\e[1m"
 
+# Autocomplete for mc
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/mc mc
